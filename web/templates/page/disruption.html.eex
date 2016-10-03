@@ -5,8 +5,12 @@
 <div>Level of Interest:<%= @disruption.level_of_interest %></div>
 <div>Category: <%= @disruption.category %></div>
 <div>Sub Category: <%= @disruption.sub_category %></div>
+<div>From: <%= format_datetime @disruption.start_time %></div>
+<div>To: <%= format_datetime @disruption.end_time %></div>
 <div>Comments: <%= @disruption.comments %></div>
 <div>Current Update:<%= @disruption.current_update %></div>
+<div>Remarked: <%= format_datetime @disruption.remark_time %></div>
+<div>Last Modified: <%= format_datetime @disruption.last_mod_time %></div>
 <div>Display Point: <%= format_point @disruption.cause_area.display_point %></div>
 <%= for street <- @disruption.cause_area.streets do %>
 <div>
