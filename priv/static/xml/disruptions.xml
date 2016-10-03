@@ -1,0 +1,824 @@
+<Root xmlns="http://www.tfl.gov.uk/tims/1.0">
+<Header>
+<Identifier>Transport for London | Live Traffic Disruptions</Identifier>
+<DisplayTitle>
+Transport for London | Traffic Information Management System (TIMS) Feed
+</DisplayTitle>
+<Version>2.0</Version>
+<PublishDateTime canonical="2016-10-02T14:00:00Z">Sunday, 2 Oct 2016 15:00:00 +01:00</PublishDateTime>
+<Author>digital@tfl.gov.uk</Author>
+<Owner>Transport for London</Owner>
+<RefreshRate>5</RefreshRate>
+<Max_Latency>30</Max_Latency>
+<TimeToError>30</TimeToError>
+<Schedule>Every 5 minutes</Schedule>
+<Attribution>
+<Url>http://www.tfl.gov.uk/</Url>
+<Text>(c) Transport for London</Text>
+<Logo>
+http://www.tfl.gov.uk/tfl-global/images/roundel.gif
+</Logo>
+</Attribution>
+<Language>EN</Language>
+</Header>
+<Disruptions>
+<Disruption id="126276">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>High</levelOfInterest>
+<category>Works</category>
+<subCategory>Borough</subCategory>
+<startTime>2016-09-30T23:01:00Z</startTime>
+<endTime>2016-12-30T23:59:00Z</endTime>
+<location>[A100] Tower Bridge (E1W ,EC3N) (Tower Hamlets)</location>
+<corridor>Inner Ring</corridor>
+<comments>
+[A100] Tower Bridge (Both Directions) - Closed to all traffic, including bicycles, from Saturday 1 October to approximately Friday 30 December during structural maintenance and refurbishment works on behalf of the City of London. Northbound traffic is diverted via London Bridge and southbound via Southwark Bridge. Pedestrian access is maintained through most of the works, bar the weekends of 26 and 27 November, 3 and 4 December and 10 and 11 December. Find out more about the Tower Bridge closure, including a map of the diversion route and likely traffic impact.
+</comments>
+<currentUpdate>
+The bridge is closed in both directions. Eastbound traffic is slow moving on Upper Thames Street with tailbacks to Upper Thames Street Tunnel. Traffic is slow moving eastbound on the Jamaica Road approach to Rotherhithe Tunnel. Northbound traffic on Lower Road is also slow moving on approach to the tunnel, with tailbacks to Surrey Quays. Minor delays on other diversion routes.
+</currentUpdate>
+<remarkTime>2016-10-02T13:59:11Z</remarkTime>
+<lastModTime>2016-10-02T13:59:11Z</lastModTime>
+<CauseArea>...</CauseArea>
+</Disruption>
+<Disruption id="136789">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>Medium</levelOfInterest>
+<category>Works</category>
+<subCategory>Emergency</subCategory>
+<startTime>2016-09-14T13:55:00Z</startTime>
+<endTime>2016-10-03T17:00:00Z</endTime>
+<location>[A10] Stoke Newington High Street (N16) (Hackney)</location>
+<corridor>A10</corridor>
+<comments>
+[A10] Stoke Newington High Street (N16) (Northbound) at the junction of Stoke Newington Church Street - Lanes one (bus lane) and two (of three)closed to facilitate emergency Thames Water works.
+</comments>
+<currentUpdate>Traffic is flowing well.</currentUpdate>
+<remarkTime>2016-10-02T13:46:35Z</remarkTime>
+<lastModTime>2016-10-02T13:46:35Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>533624.301,186544.013</coordinatesEN>
+<coordinatesLL>-.07367,51.561888</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Streets>
+<Street>
+<name>Sanford Lane (N16)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030775991</toid>
+<Line>
+<coordinatesEN>533622.178,186525.736,533664.338,186520.56</coordinatesEN>
+<coordinatesLL>-.073708,51.561724,-.073102,51.561668</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>[B104] Stoke Newington Church Street (N16)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030154123</toid>
+<Line>
+<coordinatesEN>533520,186558,533624.301,186544.013</coordinatesEN>
+<coordinatesLL>-.075169,51.562038,-.07367,51.561888</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>[A10] Stoke Newington High Street (N16)</name>
+<closure>Open</closure>
+<directions>Northbound</directions>
+<Link>
+<toid>4000000031257606</toid>
+<Line>
+<coordinatesEN>533624.301,186544.013,533622.178,186525.736</coordinatesEN>
+<coordinatesLL>-.07367,51.561888,-.073708,51.561724</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030357176</toid>
+<Line>
+<coordinatesEN>533632,186599,533624.301,186544.013</coordinatesEN>
+<coordinatesLL>-.073539,51.56238,-.07367,51.561888</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030252509</toid>
+<Line>
+<coordinatesEN>533622.178,186525.736,533611,186405</coordinatesEN>
+<coordinatesLL>-.073708,51.561724,-.073915,51.560642</coordinatesLL>
+</Line>
+</Link>
+</Street>
+</Streets>
+</CauseArea>
+</Disruption>
+<Disruption id="129907">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>Medium</levelOfInterest>
+<category>Special and Planned Events</category>
+<subCategory>Sporting</subCategory>
+<startTime>2016-10-02T10:30:00Z</startTime>
+<endTime>2016-10-02T18:30:00Z</endTime>
+<location>Wembley Stadium () (Brent)</location>
+<comments>
+Wembley Stadium - Wembley Stadium will be hosting the NFL game between the Jacksonville Jaguars and Indianapolis Colts, kick off is at 1430hrs. Large pedestrian numbers are expected in the Wembley area. Traffic levels are expected to increase in the area in the lead up to the game and after the game has ended. Roads likely to be affected are the A406, Harrow Road, Wembley High Road and roads around the stadium.
+</comments>
+<currentUpdate>Expect delays when the match ends.</currentUpdate>
+<remarkTime>2016-10-02T13:44:49Z</remarkTime>
+<lastModTime>2016-10-02T13:44:49Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>519378.521,185553.698</coordinatesEN>
+<coordinatesLL>-.279439,51.556183</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Boundary>
+<Polygon>
+<coordinatesEN>
+519508.1674,185410.8224,519554.4695,185699.2189,519211.8334,185691.2813,519202.573,185408.1766,519508.1674,185410.8224
+</coordinatesEN>
+<coordinatesLL>
+-.277618,51.554871,-.276852,51.557453,-.281796,51.557455,-.282025,51.554912,-.277618,51.554871
+</coordinatesLL>
+</Polygon>
+</Boundary>
+</CauseArea>
+</Disruption>
+<Disruption id="137573">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>Medium</levelOfInterest>
+<category>Works</category>
+<subCategory>Borough</subCategory>
+<startTime>2016-10-01T07:00:00Z</startTime>
+<endTime>2016-10-09T15:00:00Z</endTime>
+<location>[B100] Finsbury Square (EC1Y,EC2A) (Islington)</location>
+<comments>
+[B100] Finsbury Square (All Directions) at the junction of Chiswell Street - There will be temporary traffic lights in operation to facilitate carriageway repairs (Weekends only)
+</comments>
+<currentUpdate>
+Delays possible whilst temporary signals are in use.
+</currentUpdate>
+<remarkTime>2016-10-02T13:44:17Z</remarkTime>
+<lastModTime>2016-10-02T13:44:17Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>532800,181906</coordinatesEN>
+<coordinatesLL>-.087307,51.520399</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Streets>...</Streets>
+</CauseArea>
+</Disruption>
+<Disruption id="137818">...</Disruption>
+<Disruption id="138494">...</Disruption>
+<Disruption id="131664">...</Disruption>
+<Disruption id="117841">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>Medium</levelOfInterest>
+<category>Works</category>
+<subCategory>TfL</subCategory>
+<startTime>2016-03-13T11:21:00Z</startTime>
+<endTime>2017-02-25T18:00:00Z</endTime>
+<location>[A127] Southend Arterial Road (RM2) (Havering)</location>
+<corridor>A12</corridor>
+<comments>
+Ardleigh Green Bridge, [A127] Southend Arterial Road (RM2) (Both Directions) at the junction of Bryant Avenue - Carriageway restrictions for bridge replacement works. A contraflow arrangement (a single lane in each direction) is in place on the A127, meaning that the Essex-bound carriageway will be closed completely and two-way traffic will operate on the other side of the road. This arrangement will be in place on the Essex-bound carriageway of the A127 from Gallows Corner to Squirrels Heath Road until May 2017 to allow us to complete the works. In addition, there is no access from Bryant Avenue on to the A127 until February 2017 while demolition and replacement of the eastern half of the bridge takes place. Click for more information on the TfL website.
+</comments>
+<currentUpdate>Traffic is slow on the westbound approach.</currentUpdate>
+<remarkTime>2016-10-02T13:40:27Z</remarkTime>
+<lastModTime>2016-10-02T13:40:27Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>553679,190280.514</coordinatesEN>
+<coordinatesLL>.217095,51.590355</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Streets>
+<Street>
+<name>Bryant Avenue (RM2,RM3)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030366870</toid>
+<Line>
+<coordinatesEN>553925,190121,553915,190173</coordinatesEN>
+<coordinatesLL>.220574,51.588854,.220453,51.589324</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030264300</toid>
+<Line>
+<coordinatesEN>553967,190066,553941,190140</coordinatesEN>
+<coordinatesLL>.221156,51.588349,.220813,51.589021</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030366882</toid>
+<Line>
+<coordinatesEN>553914,190108,553941,190140</coordinatesEN>
+<coordinatesLL>.22041,51.58874,.220813,51.589021</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>[A127] Southend Arterial Road (RM2)</name>
+<closure>Open</closure>
+<directions>Both Directions</directions>
+<Link>
+<toid>4000000030103855</toid>
+<Line>
+<coordinatesEN>553873,190124,554054.711,189990.607</coordinatesEN>
+<coordinatesLL>.219825,51.588895,.222388,51.587647</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030103852</toid>
+<Line>
+<coordinatesEN>553914,190108,553407,190517</coordinatesEN>
+<coordinatesLL>.22041,51.58874,.213275,51.592554</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030366869</toid>
+<Line>
+<coordinatesEN>553898.253,190075.664,553873,190124</coordinatesEN>
+<coordinatesLL>.220168,51.588454,.219825,51.588895</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030366863</toid>
+<Line>
+<coordinatesEN>553967,190066,553914,190108</coordinatesEN>
+<coordinatesLL>.221156,51.588349,.22041,51.58874</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>Southend Arterial Road</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030103855</toid>
+<Line>
+<coordinatesEN>553873,190124,554054.711,189990.607</coordinatesEN>
+<coordinatesLL>.219825,51.588895,.222388,51.587647</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030103852</toid>
+<Line>
+<coordinatesEN>553914,190108,553407,190517</coordinatesEN>
+<coordinatesLL>.22041,51.58874,.213275,51.592554</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030366869</toid>
+<Line>
+<coordinatesEN>553898.253,190075.664,553873,190124</coordinatesEN>
+<coordinatesLL>.220168,51.588454,.219825,51.588895</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030366863</toid>
+<Line>
+<coordinatesEN>553967,190066,553914,190108</coordinatesEN>
+<coordinatesLL>.221156,51.588349,.22041,51.58874</coordinatesLL>
+</Line>
+</Link>
+</Street>
+</Streets>
+</CauseArea>
+</Disruption>
+<Disruption id="138491">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>Medium</levelOfInterest>
+<category>Infrastructure Issue</category>
+<subCategory>Traffic Signal</subCategory>
+<startTime>2016-10-02T07:35:00Z</startTime>
+<location>[A222] Lower Addiscombe Road (CR0) (Croydon)</location>
+<comments>
+[A222] Lower Addiscombe Road (CR0) (All Directions) at the junction of Pavement Square - Traffic signals are not working.
+</comments>
+<currentUpdate>Approach the junction with caution.</currentUpdate>
+<remarkTime>2016-10-02T13:32:44Z</remarkTime>
+<lastModTime>2016-10-02T13:32:44Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>534208.125,166352.367</coordinatesEN>
+<coordinatesLL>-.072922,51.380278</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Streets>
+<Street>
+<name>[A222] Lower Addiscombe Road (CR0)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030335665</toid>
+<Line>
+<coordinatesEN>534164,166322,534208.125,166352.367</coordinatesEN>
+<coordinatesLL>-.073567,51.380016,-.072922,51.380278</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030229898</toid>
+<Line>
+<coordinatesEN>534224,166360,534277,166386</coordinatesEN>
+<coordinatesLL>-.072691,51.380343,-.07192,51.380564</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030654210</toid>
+<Line>
+<coordinatesEN>534208.125,166352.367,534224,166360</coordinatesEN>
+<coordinatesLL>-.072922,51.380278,-.072691,51.380343</coordinatesLL>
+</Line>
+</Link>
+</Street>
+</Streets>
+</CauseArea>
+</Disruption>
+<Disruption id="137811">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>Medium</levelOfInterest>
+<category>Works</category>
+<subCategory>Other</subCategory>
+<startTime>2016-10-01T07:00:00Z</startTime>
+<endTime>2016-12-18T20:00:00Z</endTime>
+<location>[A200] Crucifix Lane (SE1) (Southwark)</location>
+<corridor>Southern River Route</corridor>
+<comments>
+[A200] Crucifix Lane (SE1) (All Directions) at the junction of Druid Street - Road closed to facilitate bridge works. (Weekends Only)
+</comments>
+<currentUpdate>Use other routes and expect local delays.</currentUpdate>
+<remarkTime>2016-10-02T13:32:26Z</remarkTime>
+<lastModTime>2016-10-02T13:32:26Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>533346,179878</coordinatesEN>
+<coordinatesLL>-.080208,51.502044</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Streets>
+<Street>
+<name>[A200] Crucifix Lane (SE1)</name>
+<closure>Full Closure</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030419699</toid>
+<Line>
+<coordinatesEN>533323,179869,533355.701,179885.401</coordinatesEN>
+<coordinatesLL>-.080543,51.501968,-.080065,51.502108</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030345344</toid>
+<Line>
+<coordinatesEN>533355.701,179885.401,533400,179863</coordinatesEN>
+<coordinatesLL>-.080065,51.502108,-.079436,51.501896</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030419709</toid>
+<Line>
+<coordinatesEN>533304.448,179871.728,533323,179869</coordinatesEN>
+<coordinatesLL>-.080809,51.501997,-.080543,51.501968</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>[A200] Druid Street (SE1)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030419699</toid>
+<Line>
+<coordinatesEN>533323,179869,533355.701,179885.401</coordinatesEN>
+<coordinatesLL>-.080543,51.501968,-.080065,51.502108</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030345344</toid>
+<Line>
+<coordinatesEN>533355.701,179885.401,533400,179863</coordinatesEN>
+<coordinatesLL>-.080065,51.502108,-.079436,51.501896</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030419709</toid>
+<Line>
+<coordinatesEN>533304.448,179871.728,533323,179869</coordinatesEN>
+<coordinatesLL>-.080809,51.501997,-.080543,51.501968</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>White's Grounds (SE1)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030419727</toid>
+<Line>
+<coordinatesEN>533381,179862,533347,179844</coordinatesEN>
+<coordinatesLL>-.07971,51.501892,-.080206,51.501738</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030419735</toid>
+<Line>
+<coordinatesEN>533396,179853,533381,179862</coordinatesEN>
+<coordinatesLL>-.079497,51.501807,-.07971,51.501892</coordinatesLL>
+</Line>
+</Link>
+</Street>
+</Streets>
+</CauseArea>
+</Disruption>
+<Disruption id="138283">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>High</levelOfInterest>
+<category>Works</category>
+<subCategory>Emergency</subCategory>
+<startTime>2016-09-29T22:10:00Z</startTime>
+<endTime>2016-10-05T05:00:00Z</endTime>
+<location>[A4] Strand (WC2B,WC2R) (Westminster)</location>
+<comments>
+[A4] Strand (WC2R/WC2B) (Both Directions) at the junction of Aldwych - Lane restrictions in place to facilitate works. There is also a lane restriction in place northbound on Lancaster Place.
+</comments>
+<currentUpdate>Traffic is flowing well.</currentUpdate>
+<remarkTime>2016-10-02T13:23:28Z</remarkTime>
+<lastModTime>2016-10-02T13:23:28Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>530625.197,180832.016</coordinatesEN>
+<coordinatesLL>-.119036,51.511254</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Streets>
+<Street>
+<name>A301 (WC2B,WC2E,WC2R)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030239248</toid>
+<Line>
+<coordinatesEN>530689,180675,530614,180815</coordinatesEN>
+<coordinatesLL>-.118175,51.509828,-.119203,51.511103</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475346</toid>
+<Line>
+<coordinatesEN>530615.477,180824.605,530616.407,180828.738</coordinatesEN>
+<coordinatesLL>-.119179,51.511189,-.119164,51.511226</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343749</toid>
+<Line>
+<coordinatesEN>530624,180871,530621,180833</coordinatesEN>
+<coordinatesLL>-.119039,51.511604,-.119096,51.511264</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030147383</toid>
+<Line>
+<coordinatesEN>530624,180830,530650.702,180769.673</coordinatesEN>
+<coordinatesLL>-.119054,51.511236,-.118692,51.510688</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475347</toid>
+<Line>
+<coordinatesEN>530620,180827.448,530621,180833</coordinatesEN>
+<coordinatesLL>-.119112,51.511214,-.119096,51.511264</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030459206</toid>
+<Line>
+<coordinatesEN>530614,180815,530615.477,180824.605</coordinatesEN>
+<coordinatesLL>-.119203,51.511103,-.119179,51.511189</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>5000005109153942</toid>
+<Line>
+<coordinatesEN>530640.861,180773.775,530620,180827.448</coordinatesEN>
+<coordinatesLL>-.118832,51.510727,-.119112,51.511214</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>[A4] Aldwych (WC2B,WC2R)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030479536</toid>
+<Line>
+<coordinatesEN>530624,180830,530620,180827.448</coordinatesEN>
+<coordinatesLL>-.119054,51.511236,-.119112,51.511214</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030459204</toid>
+<Line>
+<coordinatesEN>530615.477,180824.605,530606,180819</coordinatesEN>
+<coordinatesLL>-.119179,51.511189,-.119317,51.511141</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475349</toid>
+<Line>
+<coordinatesEN>530620,180827.448,530615.477,180824.605</coordinatesEN>
+<coordinatesLL>-.119112,51.511214,-.119179,51.511189</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030459205</toid>
+<Line>
+<coordinatesEN>530616.407,180828.738,530606,180819</coordinatesEN>
+<coordinatesLL>-.119164,51.511226,-.119317,51.511141</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343748</toid>
+<Line>
+<coordinatesEN>530616.923,180837.416,530623,180873</coordinatesEN>
+<coordinatesLL>-.119153,51.511304,-.119052,51.511623</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475345</toid>
+<Line>
+<coordinatesEN>530614,180815,530606,180819</coordinatesEN>
+<coordinatesLL>-.119203,51.511103,-.119317,51.511141</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343729</toid>
+<Line>
+<coordinatesEN>530616.923,180837.416,530548,180795</coordinatesEN>
+<coordinatesLL>-.119153,51.511304,-.120161,51.510939</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030479537</toid>
+<Line>
+<coordinatesEN>530621,180833,530616.407,180828.738</coordinatesEN>
+<coordinatesLL>-.119096,51.511264,-.119164,51.511226</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475348</toid>
+<Line>
+<coordinatesEN>530616.407,180828.738,530616.923,180837.416</coordinatesEN>
+<coordinatesLL>-.119164,51.511226,-.119153,51.511304</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343742</toid>
+<Line>
+<coordinatesEN>530646,180859,530621,180833</coordinatesEN>
+<coordinatesLL>-.118726,51.511491,-.119096,51.511264</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343747</toid>
+<Line>
+<coordinatesEN>530606,180819,530576,180802</coordinatesEN>
+<coordinatesLL>-.119317,51.511141,-.119756,51.510995</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>[A4] Strand (WC2B,WC2R)</name>
+<closure>Open</closure>
+<directions>Both Directions</directions>
+<Link>
+<toid>4000000030479536</toid>
+<Line>
+<coordinatesEN>530624,180830,530620,180827.448</coordinatesEN>
+<coordinatesLL>-.119054,51.511236,-.119112,51.511214</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030459204</toid>
+<Line>
+<coordinatesEN>530615.477,180824.605,530606,180819</coordinatesEN>
+<coordinatesLL>-.119179,51.511189,-.119317,51.511141</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475349</toid>
+<Line>
+<coordinatesEN>530620,180827.448,530615.477,180824.605</coordinatesEN>
+<coordinatesLL>-.119112,51.511214,-.119179,51.511189</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030459205</toid>
+<Line>
+<coordinatesEN>530616.407,180828.738,530606,180819</coordinatesEN>
+<coordinatesLL>-.119164,51.511226,-.119317,51.511141</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343748</toid>
+<Line>
+<coordinatesEN>530616.923,180837.416,530623,180873</coordinatesEN>
+<coordinatesLL>-.119153,51.511304,-.119052,51.511623</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475345</toid>
+<Line>
+<coordinatesEN>530614,180815,530606,180819</coordinatesEN>
+<coordinatesLL>-.119203,51.511103,-.119317,51.511141</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343729</toid>
+<Line>
+<coordinatesEN>530616.923,180837.416,530548,180795</coordinatesEN>
+<coordinatesLL>-.119153,51.511304,-.120161,51.510939</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030479537</toid>
+<Line>
+<coordinatesEN>530621,180833,530616.407,180828.738</coordinatesEN>
+<coordinatesLL>-.119096,51.511264,-.119164,51.511226</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030475348</toid>
+<Line>
+<coordinatesEN>530616.407,180828.738,530616.923,180837.416</coordinatesEN>
+<coordinatesLL>-.119164,51.511226,-.119153,51.511304</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343742</toid>
+<Line>
+<coordinatesEN>530646,180859,530621,180833</coordinatesEN>
+<coordinatesLL>-.118726,51.511491,-.119096,51.511264</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030343747</toid>
+<Line>
+<coordinatesEN>530606,180819,530576,180802</coordinatesEN>
+<coordinatesLL>-.119317,51.511141,-.119756,51.510995</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>Wellington Street (WC2B)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000030343782</toid>
+<Line>
+<coordinatesEN>530598,180851,530564,180887</coordinatesEN>
+<coordinatesLL>-.11942,51.511431,-.119897,51.511762</coordinatesLL>
+</Line>
+</Link>
+</Street>
+</Streets>
+</CauseArea>
+</Disruption>
+<Disruption id="120586">
+<status>Active</status>
+<severity>Moderate</severity>
+<levelOfInterest>Medium</levelOfInterest>
+<category>Works</category>
+<subCategory>Borough</subCategory>
+<startTime>2016-05-03T21:00:00Z</startTime>
+<endTime>2019-04-30T04:00:00Z</endTime>
+<location>[A4] Knightsbridge (SW1X) (Westminster)</location>
+<corridor>A4</corridor>
+<comments>
+[A4] Knightsbridge (Both Directions) between Wilton Place and William Street - Various restrictions until approximately April 2019 during the redevelopment of 55-91 Knightsbridge. Westbound bus lane closed until approximately April 2019. More information available on Westminster council's website.
+</comments>
+<currentUpdate>Traffic is flowing well.</currentUpdate>
+<remarkTime>2016-10-02T13:23:20Z</remarkTime>
+<lastModTime>2016-10-02T13:23:20Z</lastModTime>
+<CauseArea>
+<DisplayPoint>
+<Point>
+<coordinatesEN>527976.667,179758</coordinatesEN>
+<coordinatesLL>-.157575,51.502207</coordinatesLL>
+</Point>
+</DisplayPoint>
+<Streets>
+<Street>
+<name>[A4] Knightsbridge (SW1X)</name>
+<closure>Open</closure>
+<directions>Westbound</directions>
+<Link>
+<toid>4000000030323926</toid>
+<Line>
+<coordinatesEN>528010,179761,528070,179778.238</coordinatesEN>
+<coordinatesLL>-.157093,51.502226,-.156223,51.502368</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030407409</toid>
+<Line>
+<coordinatesEN>528010,179761,528044,179763</coordinatesEN>
+<coordinatesLL>-.157093,51.502226,-.156603,51.502237</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030216539</toid>
+<Line>
+<coordinatesEN>527932,179754,528010,179761</coordinatesEN>
+<coordinatesLL>-.158219,51.502181,-.157093,51.502226</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030323933</toid>
+<Line>
+<coordinatesEN>528044,179763,528068,179768</coordinatesEN>
+<coordinatesLL>-.156603,51.502237,-.156256,51.502276</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030323927</toid>
+<Line>
+<coordinatesEN>528068,179768,528119,179778</coordinatesEN>
+<coordinatesLL>-.156256,51.502276,-.155518,51.502354</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030146980</toid>
+<Line>
+<coordinatesEN>528070,179778.238,528279.575,179844.592</coordinatesEN>
+<coordinatesLL>-.156223,51.502368,-.153181,51.502916</coordinatesLL>
+</Line>
+</Link>
+</Street>
+<Street>
+<name>Wilton Place (SW1X)</name>
+<closure>Open</closure>
+<directions>All Directions</directions>
+<Link>
+<toid>4000000031283072</toid>
+<Line>
+<coordinatesEN>528050.234,179735.573,528056.566,179707.709</coordinatesEN>
+<coordinatesLL>-.156523,51.501989,-.156442,51.501737</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>4000000030216548</toid>
+<Line>
+<coordinatesEN>528050.234,179735.573,528056.566,179707.709</coordinatesEN>
+<coordinatesLL>-.156523,51.501989,-.156442,51.501737</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>5000005101900991</toid>
+<Line>
+<coordinatesEN>528044,179763,528048.861,179742.205</coordinatesEN>
+<coordinatesLL>-.156603,51.502237,-.156541,51.502049</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>5000005101900993</toid>
+<Line>
+<coordinatesEN>528044,179763,528048.861,179742.205</coordinatesEN>
+<coordinatesLL>-.156603,51.502237,-.156541,51.502049</coordinatesLL>
+</Line>
+</Link>
+<Link>
+<toid>5000005101900990</toid>
+<Line>
+<coordinatesEN>528048.861,179742.205,528050.234,179735.573</coordinatesEN>
+<coordinatesLL>-.156541,51.502049,-.156523,51.501989</coordinatesLL>
+</Line>
+</Link>
+</Street>
+</Streets>
+</CauseArea>
+</Disruption>
+</Disruptions>
