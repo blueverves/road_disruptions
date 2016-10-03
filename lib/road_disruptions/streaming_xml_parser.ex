@@ -44,7 +44,17 @@ defmodule StreamingXmlParser do
       comments: ~x"./comments/text()"s,
       current_update: ~x"./currentUpdate/text()"s,
       remark_time: ~x"./remarkTime/text()"s,
-      last_mod_time: ~x"./lastModTime/text()"s
+      last_mod_time: ~x"./lastModTime/text()"s,
+      cause_area: [
+        ~x"./CauseArea",
+        display_point: ~x"./DisplayPoint/Point/coordinatesLL/text()"s,
+        streets: [
+          ~x"./Streets/Street"l,
+          name: ~x"./name/text()"s,
+          closure: ~x"./closure/text()"s,
+          directions: ~x"./directions/text()"s
+        ]
+      ]
     )
   end
 
