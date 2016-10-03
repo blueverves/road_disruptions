@@ -1,0 +1,10 @@
+<div>Location: <%= @disruption.location %></div>
+<div>Corridor: <%= @disruption.corridor %></div>
+<div>Status: <%= @disruption.status %></div>
+<div>Severity: <%= @disruption.severity %></div>
+<div>Level of Interest:<%= @disruption.level_of_interest %></div>
+<div>Category: <%= @disruption.category %></div>
+<div>Sub Category: <%= @disruption.sub_category %></div>
+<div>Comments: <%= @disruption.comments %></div>
+<div>Current Update:<%= @disruption.current_update %></div>
+

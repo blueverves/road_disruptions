@@ -2,8 +2,8 @@
   <h2>London Road Disruptions</h2>
   <div>
       <%= for disruption <- @disruptions do %>
-          <p>Disruption
-              <%= disruption %>
+          <p>Disruption <%= disruption.id %>
+              <%= render "disruption.html", disruption: disruption %>
           </p>
       <% end %>
   </div>
