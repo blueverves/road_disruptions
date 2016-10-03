@@ -37,14 +37,14 @@ defmodule StreamingXmlParser do
       level_of_interest: ~x"./levelOfInterest/text()"s,
       category: ~x"./category/text()"s,
       sub_category: ~x"./subCategory/text()"s,
-      start_time: ~x"./startTime/text()"s,
-      end_time: ~x"./endTime/text()"s,
+      start_time: ~x"./startTime/text()"s |> transform_by(&parse_datetime(&1)),
+      end_time: ~x"./endTime/text()"s |> transform_by(&parse_datetime(&1)),
       location: ~x"./location/text()"s,
       corridor: ~x"./corridor/text()"s,
       comments: ~x"./comments/text()"s,
       current_update: ~x"./currentUpdate/text()"s,
-      remark_time: ~x"./remarkTime/text()"s,
-      last_mod_time: ~x"./lastModTime/text()"s,
+      remark_time: ~x"./remarkTime/text()"s |> transform_by(&parse_datetime(&1)),
+      last_mod_time: ~x"./lastModTime/text()"s |> transform_by(&parse_datetime(&1)),
       cause_area: [
         ~x"./CauseArea",
         display_point: ~x"./DisplayPoint/Point/coordinatesLL/text()"s |> transform_by(&format_point/1),
@@ -69,6 +69,18 @@ defmodule StreamingXmlParser do
     else
       str
     end
+  end
+
+  defp parse_datetime(str) do
+    case String.length(str) do
+      19 ->
+        str = str <> "Z"
+        {:ok, datetime} = Timex.parse(str, "{ISO:Extended:Z}")
+      20 ->
+        {:ok, datetime} = Timex.parse(str, "{ISO:Extended:Z}")
+      _ -> datetime = nil
+    end
+    datetime
   end
 
 end
