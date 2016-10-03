@@ -7,4 +7,11 @@
 <div>Sub Category: <%= @disruption.sub_category %></div>
 <div>Comments: <%= @disruption.comments %></div>
 <div>Current Update:<%= @disruption.current_update %></div>
-
+<div>Display Point: <%= format_point @disruption.cause_area.display_point %></div>
+<%= for street <- @disruption.cause_area.streets do %>
+<div>
+    <div>Street: <%= street.name %></div>
+    <div>Closure: <%= street.closure %></div>
+    <div>Directions: <%= street.directions %></div>
+</div>
+<% end %>
