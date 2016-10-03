@@ -47,7 +47,7 @@ defmodule StreamingXmlParser do
       last_mod_time: ~x"./lastModTime/text()"s,
       cause_area: [
         ~x"./CauseArea",
-        display_point: ~x"./DisplayPoint/Point/coordinatesLL/text()"s,
+        display_point: ~x"./DisplayPoint/Point/coordinatesLL/text()"s |> transform_by(&format_point/1),
         streets: [
           ~x"./Streets/Street"l,
           name: ~x"./name/text()"s,
@@ -56,6 +56,19 @@ defmodule StreamingXmlParser do
         ]
       ]
     )
+  end
+
+  def format_point(str) do
+    if String.contains?(str, ",") do
+      String.split(str, ",")
+      |> Enum.map(fn(token) -> 
+        token
+        |> String.replace_leading("-.", "-0.")
+        |> String.replace_leading(".", "0.")
+      end)
+    else
+      str
+    end
   end
 
 end
