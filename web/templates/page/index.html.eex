@@ -1,11 +1,14 @@
 <div>
   <h2>London Road Disruptions</h2>
   <div>
-      <%= for disruption <- @disruptions do %>
+      <div><%= render "map.html", disruptions: @disruptions %></div>
+     <%= for disruption <- @disruptions do %>
+       <div>
           <p>Disruption <%= disruption.id %>
               <%= render "disruption.html", disruption: disruption %>
           </p>
-      <% end %>
+        </div>
+     <% end %>
   </div>
 </div>
 

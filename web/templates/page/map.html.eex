@@ -1,0 +1,57 @@
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+
+<h3>Overview Map</h3>
+
+<div id='map' style='width: 800px; height: 600px;'></div>
+
+<script>
+ mapboxgl.accessToken = 'pk.eyJ1IjoiYmx1ZXZlcnZlcyIsImEiOiJjaXRxeXhjczUwMDA1MnNtcjh4cjNhaDd1In0.WLBp-T1-1wKR6vQp6zl-aA';
+
+ var map = new mapboxgl.Map({
+     container: 'map',
+     style: 'mapbox://styles/blueverves/cittwlmll000v2iqgsmjav2o1',
+     center: [-0.1277580,51.5073510],
+     zoom: 9,
+     interactive: true
+ });
+
+ map.on('style.load', function (e) {
+     console.log(e.style.sprite);
+     map.addSource('markers', {
+         "type": "geojson",
+         "data": {
+             "type": "FeatureCollection",
+             "features": [
+          <%= for disruption <- @disruptions do %>
+               {
+                 "type": "Feature",
+                 "geometry": {
+                     "type": "Point",
+                     "coordinates": [<%= format_point disruption.cause_area.display_point %>]
+                 },
+                 "properties": {
+                     "title": "<%= disruption.location  %>",
+                     "marker-color": "#DC143C",
+                     "marker-symbol": "roadblock-15"
+                 }
+                },
+            <% end %>
+              ]
+         }
+     });
+
+     map.addLayer({
+         "id": "markers",
+         "source": "markers",
+         "type": "symbol",
+         "layout": {
+             "icon-image": "{marker-symbol}",
+             "text-field": "{title}",
+             "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+             "text-offset": [0, 0.6],
+             "text-anchor": "top"
+         }
+     });
+ });
+</script>
