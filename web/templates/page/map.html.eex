@@ -31,7 +31,8 @@
                      "coordinates": [<%= format_point disruption.cause_area.display_point %>]
                  },
                  "properties": {
-                     "title": "<%= disruption.location  %>",
+                     "title": "<%= disruption.location %>",
+                     "description": "<%= disruption.comments %>",
                      "marker-color": "#DC143C",
                      "marker-symbol": "roadblock-15"
                  }
