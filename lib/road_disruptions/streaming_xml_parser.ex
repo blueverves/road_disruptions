@@ -2,7 +2,7 @@ defmodule StreamingXmlParser do
   import SweetXml
 
   @endpoint "https://data.tfl.gov.uk/tfl/syndication/feeds/tims_feed.xml"
-  @uri "#{@endpoint}?app_id=#{System.get_env("TIMS_APP_ID")}&app_key=#{System.get_env("TIMS_APP_KEY")}"
+  @uri "#{@endpoint}?app_id=#{Application.get_env(:road_disruptions, RoadDisruptions.Endpoint)[:tims_app_id]}&app_key=#{Application.get_env(:road_disruptions, RoadDisruptions.Endpoint)[:tims_app_key]}"
   @timeout 2500
   @recv_timeout 7000
 

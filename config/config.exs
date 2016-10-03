@@ -11,7 +11,9 @@ config :road_disruptions, RoadDisruptions.Endpoint,
   secret_key_base: "qIEWYDRkb1IALxiPOZzP20N2B9UygWOPXj7N09LcBQInQjNbnPJh716ulMH/n64x",
   render_errors: [view: RoadDisruptions.ErrorView, accepts: ~w(html json)],
   pubsub: [name: RoadDisruptions.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+           adapter: Phoenix.PubSub.PG2],
+  tims_app_id: System.get_env("TIMS_APP_ID"),
+  tims_app_key: System.get_env("TIMS_APP_KEY")
 
 # Configures Elixir's Logger
 config :logger, :console,
