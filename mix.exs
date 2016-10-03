@@ -17,7 +17,7 @@ defmodule RoadDisruptions.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {RoadDisruptions, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :httpoison, :timex]]
   end
 
   # Specifies which paths to compile per environment.
@@ -33,6 +33,9 @@ defmodule RoadDisruptions.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:httpoison, "~> 0.9.2"},
+     {:sweet_xml, "~> 0.6.1"},
+     {:timex, "~> 3.0"}]
   end
 end
