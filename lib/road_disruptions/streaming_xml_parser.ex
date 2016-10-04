@@ -11,13 +11,11 @@ defmodule StreamingXmlParser do
       fn -> open_feed end,
       fn stream ->
         case parse_xml(stream) do
-          data when is_list(data) and data != [] ->
-            {data, stream}
-          _ ->
-            {:halt, stream}
+          data when is_list(data) -> {data, stream}
+          _ -> {:halt, stream}
         end
       end,
-      fn stream -> stream end
+      fn data -> data end
     )
   end
 
@@ -28,7 +26,6 @@ defmodule StreamingXmlParser do
   end
 
   defp parse_xml(stream) do
-    IO.puts ">>> parse_xml"
     stream |> xpath(
       ~x"//Disruption"l,
       id: ~x"./@id/text()"s,
