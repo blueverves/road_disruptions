@@ -2,7 +2,7 @@ defmodule RoadDisruptions.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", RoadDisruptions.RoomChannel
+  channel "disruptions:*", RoadDisruptions.DisruptionsChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

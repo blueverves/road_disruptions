@@ -16,34 +16,34 @@
      interactive: true
  });
 
- map.on('style.load', function (e) {
-     console.log(e.style.sprite);
+ var geojson = {
+     "type": "FeatureCollection",
+     "features": []
+ };
+
+ // Add a marker feature to your geojson object
+ var marker = {
+     "type": "Feature",
+     "geometry": {
+         "type": "Point",
+         "coordinates": [-41.2864603, 174.776236]
+     },
+     "properties": {
+         "title": "No way",
+         "description": "Jose!",
+         "marker-color": "#DC143C",
+         "marker-symbol": "roadblock-15"
+     }
+ };
+
+ map.on('style.load', function(e) {
      map.addSource('markers', {
          "type": "geojson",
-         "data": {
-             "type": "FeatureCollection",
-             "features": [
-          <%= for disruption <- @disruptions do %>
-               {
-                 "type": "Feature",
-                 "geometry": {
-                     "type": "Point",
-                     "coordinates": [<%= format_point disruption.cause_area.display_point %>]
-                 },
-                 "properties": {
-                     "title": "<%= disruption.location %>",
-                     "description": "<%= disruption.comments %>",
-                     "marker-color": "#DC143C",
-                     "marker-symbol": "roadblock-15"
-                 }
-                },
-            <% end %>
-              ]
-         }
+         "data": geojson
      });
 
      map.addLayer({
-         "id": "markers",
+         "id": "markersLayer",
          "source": "markers",
          "type": "symbol",
          "layout": {
@@ -54,5 +54,8 @@
              "text-anchor": "top"
          }
      });
+
+     geojson.features.push(marker);
+     map.getSource('markers').setData(geojson);
  });
 </script>

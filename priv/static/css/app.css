@@ -1,4 +1,4 @@
-/* This file is for your main application css. *//* Includes Bootstrap as well as some default style for the starter
+/* Includes Bootstrap as well as some default style for the starter
  * application. This can be safely deleted to start fresh.
  */
 
@@ -80,3 +80,6 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+/* This file is for your main application css. */
+
+/*# sourceMappingURL=app.css.map*/

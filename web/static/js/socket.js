@@ -54,9 +54,21 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("disruptions:lobby", {})
+let disruptionsContainer = document.querySelector("#disruptions")
+let markersContainer = document.querySelector("#markers")
+
 channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
+   .receive("ok", resp => {
+       console.log("Joined successfully", resp)
+       channel.push("start_stream", {})
+    })
   .receive("error", resp => { console.log("Unable to join", resp) })
+
+channel.on("new_disruption", payload => {
+    let disruptionItem = document.createElement("li");
+    disruptionItem.innerText = `${payload.disruption.severity}: ${payload.disruption.status} | ${payload.disruption.location}`;
+    disruptionsContainer.appendChild(disruptionItem);
+})
 
 export default socket
