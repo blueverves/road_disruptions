@@ -70,6 +70,11 @@ channel.on("new_disruption", payload => {
     disruptionsContainer.appendChild(disruptionItem);
 })
 
+let geojson = {
+    "type": "FeatureCollection",
+    "features": []
+};
+
 channel.on("new_marker", payload => {
   let marker = {
       "type": "Feature",
@@ -84,9 +89,14 @@ channel.on("new_marker", payload => {
            "marker-color": "#DC143C",
            "marker-symbol": "roadblock-15"
      }
-   };
+  };
 
-    map.addSource(`markers-${payload.marker.id}`, marker);
+    console.log(marker);
+
+    map.addSource(`markers-${payload.marker.id}`, {
+        "type": "geojson",
+        "data": geojson
+    });
 
     map.addLayer({
         "id": `markersLayer-${payload.marker.id}`,

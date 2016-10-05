@@ -1552,6 +1552,11 @@ channel.on("new_disruption", function (payload) {
     disruptionsContainer.appendChild(disruptionItem);
 });
 
+var geojson = {
+    "type": "FeatureCollection",
+    "features": []
+};
+
 channel.on("new_marker", function (payload) {
     var marker = {
         "type": "Feature",
@@ -1568,7 +1573,12 @@ channel.on("new_marker", function (payload) {
         }
     };
 
-    map.addSource("markers-" + payload.marker.id, marker);
+    console.log(marker);
+
+    map.addSource("markers-" + payload.marker.id, {
+        "type": "geojson",
+        "data": geojson
+    });
 
     map.addLayer({
         "id": "markersLayer-" + payload.marker.id,
@@ -1590,8 +1600,8 @@ channel.on("new_marker", function (payload) {
 exports.default = socket;
 });
 
-;require.alias("phoenix/priv/static/phoenix.js", "phoenix");
-require.alias("phoenix_html/priv/static/phoenix_html.js", "phoenix_html");require.register("___globals___", function(exports, require, module) {
+;require.alias("phoenix_html/priv/static/phoenix_html.js", "phoenix_html");
+require.alias("phoenix/priv/static/phoenix.js", "phoenix");require.register("___globals___", function(exports, require, module) {
   
 });})();require('___globals___');
 
