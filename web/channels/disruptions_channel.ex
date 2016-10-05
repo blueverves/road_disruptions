@@ -2,7 +2,7 @@ defmodule RoadDisruptions.DisruptionsChannel do
   use RoadDisruptions.Web, :channel
   require Logger
 
-
+  @delay 1000
 
   def join("disruptions:lobby", payload, socket) do
     if authorized?(payload) do
@@ -19,6 +19,7 @@ defmodule RoadDisruptions.DisruptionsChannel do
     Logger.debug "DisruptionsChannel: start stream"
 
     for disruption <- stream do
+      Process.sleep(@delay)
       # send new feed entry to the client
       push socket, "new_disruption", %{disruption: disruption}
     end
