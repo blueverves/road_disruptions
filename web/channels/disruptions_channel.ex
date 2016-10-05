@@ -15,9 +15,20 @@ defmodule RoadDisruptions.DisruptionsChannel do
   # Channels can be used in a request/response fashion
   # by sending replies to requests from the client
   def handle_in("start_stream", payload, socket) do
-    stream = StreamingXmlParser.run |> Stream.map(&(&1))
     Logger.debug "DisruptionsChannel: start stream"
 
+    # start a new event manager
+    {:ok, manager} = GenEvent.start_link([])
+    # attach an event handler to the event manager
+    GenEvent.add_handler(manager, DisruptionsFeedHandler, [])
+    # trigger the news feed
+    GenEvent.sync_notify(manager, :start_feed)
+    # get the disruptions stream
+    stream = GenEvent.call(manager, DisruptionsFeedHandler, :disruptions)
+
+    Logger.debug "DisruptionsChannel: push disruptions"
+
+    # loop over the stream
     for disruption <- stream do
       Process.sleep(@delay)
       # send new feed entry to the client
