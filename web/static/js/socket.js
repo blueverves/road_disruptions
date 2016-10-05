@@ -56,7 +56,6 @@ socket.connect()
 // Now that you are connected, you can join channels with a topic:
 let channel = socket.channel("disruptions:lobby", {})
 let disruptionsContainer = document.querySelector("#disruptions")
-let markersContainer = document.querySelector("#markers")
 
 channel.join()
    .receive("ok", resp => {
@@ -69,6 +68,41 @@ channel.on("new_disruption", payload => {
     let disruptionItem = document.createElement("li");
     disruptionItem.innerText = `${payload.disruption.severity}: ${payload.disruption.status} | ${payload.disruption.location}`;
     disruptionsContainer.appendChild(disruptionItem);
+})
+
+channel.on("new_marker", payload => {
+  let marker = {
+      "type": "Feature",
+        "geometry": {
+           "type": "Point",
+            "coordinates": [`${payload.marker.display_point }`]
+      },
+      "properties": {
+           "id": `${payload.marker.id}`,
+           "location": `${payload.marker.location}`,
+           "status": `${payload.marker.status}`,
+           "marker-color": "#DC143C",
+           "marker-symbol": "roadblock-15"
+     }
+   };
+
+    map.addSource(`markers-${payload.marker.id}`, marker);
+
+    map.addLayer({
+        "id": `markersLayer-${payload.marker.id}`,
+        "source": `markers-${payload.marker.id}`,
+        "type": "symbol",
+        "layout": {
+            "icon-image": "{marker-symbol}",
+            "text-field": "{location}",
+            "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+         }
+    });
+
+    geojson.features.push(marker);
+    map.getSource(`markers-${payload.marker.id}`).setData(geojson);
 })
 
 export default socket
