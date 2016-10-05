@@ -31,6 +31,8 @@ defmodule RoadDisruptions.DisruptionsChannel do
     # loop over the stream
     for disruption <- stream do
       Process.sleep(@delay)
+      # send new marker to the client
+      push socket, "new_marker", %{marker: marker(disruption)}
       # send new feed entry to the client
       push socket, "new_disruption", %{disruption: disruption}
     end
@@ -48,5 +50,9 @@ defmodule RoadDisruptions.DisruptionsChannel do
   # Add authorization logic here as required.
   defp authorized?(_payload) do
     true
+  end
+
+  defp marker(disruption) do
+    %{location: disruption.location, status: disruption.status, display_point: disruption.cause_area.display_point, id: disruption.id}
   end
 end
