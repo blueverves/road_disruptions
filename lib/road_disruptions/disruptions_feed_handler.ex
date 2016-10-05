@@ -17,7 +17,6 @@ defmodule DisruptionsFeedHandler do
 
   def handle_call(:disruptions, stream) do
     Logger.debug "DisruptionsFeedHandler: handle call disruptions"
-
     {:ok, stream, []}
   end
 

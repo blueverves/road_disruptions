@@ -32,7 +32,7 @@ defmodule StreamingXmlParser do
 
     stream |> xpath(
       ~x"//Disruption"l,
-      id: ~x"./@id/text()"s,
+      id: ~x"./@id"s,
       status: ~x"./status/text()"s,
       severity: ~x"./severity/text()"s,
       level_of_interest: ~x"./levelOfInterest/text()"s,
