@@ -1,5 +1,8 @@
 defmodule RoadDisruptions.DisruptionsChannel do
   use RoadDisruptions.Web, :channel
+  require Logger
+
+
 
   def join("disruptions:lobby", payload, socket) do
     if authorized?(payload) do
@@ -13,8 +16,10 @@ defmodule RoadDisruptions.DisruptionsChannel do
   # by sending replies to requests from the client
   def handle_in("start_stream", payload, socket) do
     stream = StreamingXmlParser.run |> Stream.map(&(&1))
+    Logger.debug "DisruptionsChannel: start stream"
 
     for disruption <- stream do
+      # send new feed entry to the client
       push socket, "new_disruption", %{disruption: disruption}
     end
 

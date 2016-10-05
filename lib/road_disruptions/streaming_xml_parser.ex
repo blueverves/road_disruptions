@@ -1,5 +1,6 @@
 defmodule StreamingXmlParser do
   import SweetXml
+  require Logger
 
   @endpoint "https://data.tfl.gov.uk/tfl/syndication/feeds/tims_feed.xml"
   @uri "#{@endpoint}?app_id=#{Application.get_env(:road_disruptions, RoadDisruptions.Endpoint)[:tims_app_id]}&app_key=#{Application.get_env(:road_disruptions, RoadDisruptions.Endpoint)[:tims_app_key]}"
@@ -20,12 +21,15 @@ defmodule StreamingXmlParser do
   end
 
   defp open_feed do
+    Logger.debug "StreamingXmlParser: open_feed"
     HTTPoison.start
     {:ok, %HTTPoison.Response{body: data}} = HTTPoison.get(@uri, [], [timeout: @timeout, recv_timeout: @recv_timeout])
     data
   end
 
   defp parse_xml(stream) do
+    Logger.debug "StreamingXmlParser: parse_xml"
+
     stream |> xpath(
       ~x"//Disruption"l,
       id: ~x"./@id/text()"s,
