@@ -9,15 +9,14 @@ defmodule DisruptionsFeedHandler do
   end
 
   def handle_event(event, stream) do
-    Logger.debug " DisruptionsFeedHandler: handle event"
+    Logger.debug "DisruptionsFeedHandler: handle event"
     {:ok, disruptions} = process_event(event, stream)
-    Logger.debug " DisruptionsFeedHandler: return disruptions"
-    IO.inspect disruptions
+    Logger.debug "DisruptionsFeedHandler: return disruptions"
     {:ok, disruptions}
   end
 
   def handle_call(:disruptions, stream) do
-    Logger.debug " DisruptionsFeedHandler: handle call disruptions"
+    Logger.debug "DisruptionsFeedHandler: handle call disruptions"
 
     {:ok, stream, []}
   end
