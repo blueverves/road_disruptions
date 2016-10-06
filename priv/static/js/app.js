@@ -1546,10 +1546,13 @@ channel.join().receive("ok", function (resp) {
     console.log("Unable to join", resp);
 });
 
-channel.on("new_disruption", function (payload) {
-    var disruptionItem = document.createElement("li");
-    disruptionItem.innerText = payload.disruption.severity + ": " + payload.disruption.status + " | " + payload.disruption.location;
-    disruptionsContainer.appendChild(disruptionItem);
+channel.on("new_disruptions", function (payload) {
+    var disruptions = payload.disruptions;
+    for (var i = 0, len = disruptions.length; i < len; i++) {
+        var disruptionItem = document.createElement("li");
+        disruptionItem.innerText = disruptions[i].severity + ": " + disruptions[i].status + " | " + disruptions[i].location;
+        disruptionsContainer.appendChild(disruptionItem);
+    }
 });
 
 var geojson = {
@@ -1557,32 +1560,38 @@ var geojson = {
     "features": []
 };
 
-channel.on("new_marker", function (payload) {
-    var marker = {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": ["" + payload.marker.display_point]
-        },
-        "properties": {
-            "id": "" + payload.marker.id,
-            "location": "" + payload.marker.location,
-            "status": "" + payload.marker.status,
-            "marker-color": "#DC143C",
-            "marker-symbol": "roadblock-15"
-        }
-    };
+channel.on("new_markers", function (payload) {
+    var markers = payload.markers;
+    for (var i = 0, len = markers.length; i < len; i++) {
+        var marker = {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [markers[i].display_point]
+            },
+            "properties": {
+                "id": markers[i].id,
+                "location": markers[i].location,
+                "status": markers[i].status,
+                "marker-color": "#DC143C",
+                "marker-symbol": "roadblock-15"
+            }
+        };
+        geojson.features.push(marker);
+    }
 
-    console.log(marker);
+    if (typeof map.getSource("markers") != 'undefined') {
+        map.removeSource("markers");
+    }
 
-    map.addSource("markers-" + payload.marker.id, {
+    map.addSource("markers", {
         "type": "geojson",
         "data": geojson
     });
 
     map.addLayer({
-        "id": "markersLayer-" + payload.marker.id,
-        "source": "markers-" + payload.marker.id,
+        "id": "markersLayer",
+        "source": "markers",
         "type": "symbol",
         "layout": {
             "icon-image": "{marker-symbol}",
@@ -1593,8 +1602,11 @@ channel.on("new_marker", function (payload) {
         }
     });
 
-    geojson.features.push(marker);
-    map.getSource("markers-" + payload.marker.id).setData(geojson);
+    map.getSource("markers").setData(geojson);
+
+    setTimeout(function () {
+        channel.push("next_dataset", {});
+    }, 5000);
 });
 
 exports.default = socket;
