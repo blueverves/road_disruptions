@@ -2,7 +2,8 @@ defmodule RoadDisruptions.DisruptionsChannel do
   use RoadDisruptions.Web, :channel
   require Logger
 
-  @delay 1000
+  @delay 5000
+  @new_items_no 10
 
   def join("disruptions:lobby", payload, socket) do
     if authorized?(payload) do
@@ -21,42 +22,25 @@ defmodule RoadDisruptions.DisruptionsChannel do
     {:ok, manager} = GenEvent.start_link([])
     # attach an event handler to the event manager
     GenEvent.add_handler(manager, DisruptionsFeedHandler, [])
-    # store manager in socket
-    socket = assign(socket, :manager, manager)
     # trigger the news feed
     GenEvent.sync_notify(manager, :start_stream)
     # get the disruptions stream
-    disruptions = GenEvent.call(manager, DisruptionsFeedHandler, :disruptions)
+    stream = GenEvent.call(manager, DisruptionsFeedHandler, :disruptions)
+    |> Stream.chunk(@new_items_no)
 
-    Logger.debug "DisruptionsChannel: push disruptions"
+    for disruptions <- stream do
+      disruptions
+      |> Stream.take(1)
+      |> Enum.to_list
+      |> List.flatten
 
-    Process.sleep(@delay)
-    # send new marker to the client
-    push socket, "new_markers", %{markers: markers(disruptions)}
-    # send new feed entry to the client
-    push socket, "new_disruptions", %{disruptions: disruptions}
-
-    {:reply, {:ok, payload}, socket}
-  end
-
-  def handle_in("next_dataset", payload, socket) do
-    Logger.debug "DisruptionsChannel: next dataset"
-    Process.sleep(@delay*2)
-
-    # get stored GenEvent manager
-    manager = get_in(socket.assigns, [:manager])
-    # trigger the news feed
-    GenEvent.sync_notify(manager, :next_dataset)
-    # get the disruptions stream
-    disruptions = GenEvent.call(manager, DisruptionsFeedHandler, :disruptions)
-
-    Logger.debug "DisruptionsChannel: push disruptions"
-    Process.sleep(@delay)
-    # send new marker to the client
-    push socket, "new_markers", %{markers: markers(disruptions)}
-    # send new feed entry to the client
-    push socket, "new_disruptions", %{disruptions: disruptions}
-
+      Logger.debug "DisruptionsChannel: push disruptions"
+      # send new marker to the client
+      push socket, "new_markers", %{markers: markers(disruptions)}
+      # send new feed entry to the client
+      push socket, "new_disruptions", %{disruptions: disruptions}
+      Process.sleep(@delay)
+    end
     {:reply, {:ok, payload}, socket}
   end
 

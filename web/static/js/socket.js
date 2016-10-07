@@ -121,8 +121,6 @@ channel.on("new_markers", payload => {
     });
 
     map.getSource("markers").setData(geojson);
-
-    setTimeout(function() {channel.push("next_dataset", {})}, 5000);
 })
 
 export default socket

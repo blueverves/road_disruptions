@@ -2,8 +2,6 @@ defmodule DisruptionsFeedHandler do
   use GenEvent
   require Logger
 
-  @new_items_no 10
-
   def init(args) do
     {:ok, args}
   end
@@ -17,24 +15,14 @@ defmodule DisruptionsFeedHandler do
 
   def handle_call(:disruptions, stream) do
     Logger.debug "DisruptionsFeedHandler: handle call disruptions"
-    {:ok, stream, stream}
+    {:ok, stream, []}
   end
 
   defp process_event(:start_stream, stream) do
     Logger.debug "DisruptionsFeedHandler: start feed"
     disruptions = StreamingXmlParser.run
-    |> Stream.take(@new_items_no)
+    |> Stream.dedup_by(fn(d) -> d.id end)
     |> Stream.map(&(&1))
-    |> Enum.to_list
-    process_event(:order_by_severity, disruptions)
-  end
-
-  defp process_event(:next_dataset, stream) do
-    Logger.debug "DisruptionsFeedHandler: next dataset"
-    disruptions = stream
-    |> Stream.take(@new_items_no)
-    |> Stream.map(&(&1))
-    |> Enum.to_list
     process_event(:order_by_severity, disruptions)
   end
 
