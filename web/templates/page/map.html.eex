@@ -37,5 +37,20 @@
              "icon-allow-overlap": true
          }
      });
+
+     map.on('click', function (e) {
+         var features = map.queryRenderedFeatures(e.point, { layers: ['disruptionsLayer'] });
+
+         if (!features.length) {
+             return;
+         }
+
+         var feature = features[0];
+
+         var popup = new mapboxgl.Popup()
+                                 .setLngLat(feature.geometry.coordinates)
+                                 .setHTML(feature.properties.location+"</br>"+feature.properties.comments)
+                                 .addTo(map);
+     });
  });
 </script>

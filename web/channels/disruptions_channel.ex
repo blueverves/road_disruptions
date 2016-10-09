@@ -67,7 +67,7 @@ defmodule RoadDisruptions.DisruptionsChannel do
           },
           properties: %{
             id: disruption.id,
-            description: disruption.location,
+            location: disruption.location,
             comments: disruption.comments,
             "marker-symbol": "roadblock-15"
           }
