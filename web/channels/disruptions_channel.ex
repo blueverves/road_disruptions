@@ -69,9 +69,19 @@ defmodule RoadDisruptions.DisruptionsChannel do
             id: disruption.id,
             location: disruption.location,
             comments: disruption.comments,
-            "marker-symbol": "roadblock-15"
+            "marker-symbol": marker_symbol(disruption.severity)
           }
       }
     end)
+  end
+
+  defp marker_symbol(severity) do
+    case severity do
+      "Severe" -> "roadblock-15"
+      "Serious" -> "roadblock-11"
+      "Moderate" -> "car-15"
+      "Minimal" -> "car-11"
+      _ -> ""
+    end
   end
 end
