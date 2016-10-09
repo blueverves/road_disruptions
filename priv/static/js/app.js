@@ -1562,47 +1562,10 @@ var geojson = {
 
 channel.on("new_markers", function (payload) {
     var markers = payload.markers;
-    for (var i = 0, len = markers.length; i < len; i++) {
-        var marker = {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [markers[i].display_point]
-            },
-            "properties": {
-                "id": markers[i].id,
-                "location": markers[i].location,
-                "status": markers[i].status,
-                "marker-color": "#DC143C",
-                "marker-symbol": "roadblock-15"
-            }
-        };
-        geojson.features.push(marker);
-    }
 
-    if (typeof map.getSource("markers") != 'undefined') {
-        map.removeSource("markers");
-    }
+    geojson.features = geojson.features.concat(markers);
 
-    map.addSource("markers", {
-        "type": "geojson",
-        "data": geojson
-    });
-
-    map.addLayer({
-        "id": "markersLayer",
-        "source": "markers",
-        "type": "symbol",
-        "layout": {
-            "icon-image": "{marker-symbol}",
-            "text-field": "{location}",
-            "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
-            "text-offset": [0, 0.6],
-            "text-anchor": "top"
-        }
-    });
-
-    map.getSource("markers").setData(geojson);
+    map.getSource("disruptions").setData(geojson);
 });
 
 exports.default = socket;

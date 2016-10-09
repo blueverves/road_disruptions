@@ -62,10 +62,11 @@ defmodule StreamingXmlParser do
   def format_point(str) do
     if String.contains?(str, ",") do
       String.split(str, ",")
-      |> Enum.map(fn(token) -> 
+      |> Enum.map(fn(token) ->
         token
         |> String.replace_leading("-.", "-0.")
         |> String.replace_leading(".", "0.")
+        |> String.to_float
       end)
     else
       str

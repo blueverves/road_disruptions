@@ -1,5 +1,5 @@
-<script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
 
 <h3>Overview Map</h3>
 
@@ -14,5 +14,28 @@
      center: [-0.1277580,51.5073510],
      zoom: 9,
      interactive: true
+ });
+
+ var geojson = {
+     "type": "FeatureCollection",
+     "features": []
+ };
+
+ map.on('load', function () {
+
+     map.addSource("disruptions", {
+         "type": "geojson",
+         "data": geojson
+     });
+
+     map.addLayer({
+         "id": "disruptionsLayer",
+         "type": "symbol",
+         "source": "disruptions",
+         "layout": {
+             "icon-image":"{marker-symbol}",
+             "icon-allow-overlap": true
+         }
+     });
  });
 </script>

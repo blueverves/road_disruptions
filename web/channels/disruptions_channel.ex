@@ -41,6 +41,7 @@ defmodule RoadDisruptions.DisruptionsChannel do
       push socket, "new_disruptions", %{disruptions: disruptions}
       Process.sleep(@delay)
     end
+
     {:reply, {:ok, payload}, socket}
   end
 
@@ -58,7 +59,19 @@ defmodule RoadDisruptions.DisruptionsChannel do
 
   defp markers(disruptions) do
     Enum.map(disruptions, fn disruption ->
-      %{location: disruption.location, status: disruption.status, display_point: disruption.cause_area.display_point, id: disruption.id}
+      %{
+          type: "Feature",
+            geometry: %{
+            type: "Point",
+            coordinates: disruption.cause_area.display_point
+          },
+          properties: %{
+            id: disruption.id,
+            description: disruption.location,
+            comments: disruption.comments,
+            "marker-symbol": "roadblock-15"
+          }
+      }
     end)
   end
 end
