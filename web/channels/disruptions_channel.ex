@@ -17,16 +17,46 @@ defmodule RoadDisruptions.DisruptionsChannel do
   # by sending replies to requests from the client
   def handle_in("start_stream", payload, socket) do
     Logger.debug "DisruptionsChannel: start stream"
-    filter_settings = keys_to_atom(payload)
-
     # start a new event manager
     {:ok, manager} = GenEvent.start_link([])
     # attach an event handler to the event manager
     GenEvent.add_handler(manager, DisruptionsFeedHandler, [])
+    # store manager in socket
+    socket = assign(socket, :manager, manager)
     # trigger the news feed
     GenEvent.sync_notify(manager, %{start_stream: []})
+
+    {:reply, {:ok, payload}, socket}
+  end
+
+  def handle_in("filter_by_severity", payload, socket) do
+    Logger.debug "DisruptionsChannel: filter by severity"
+    filter_settings = keys_to_atom(payload)
+
+    # get stored GenEvent manager
+    manager = get_in(socket.assigns, [:manager])
     # filter stream by settings
     GenEvent.sync_notify(manager, filter_settings)
+
+    {:reply, {:ok, payload}, socket}
+  end
+
+  def handle_in("filter_by_status", payload, socket) do
+    Logger.debug "DisruptionsChannel: filter by status"
+    filter_settings = keys_to_atom(payload)
+
+    # get stored GenEvent manager
+    manager = get_in(socket.assigns, [:manager])
+    # filter stream by settings
+    GenEvent.sync_notify(manager, filter_settings)
+
+    {:reply, {:ok, payload}, socket}
+  end
+
+  def handle_in("stream_disruptions", payload, socket) do
+    Logger.debug "DisruptionsChannel: stream disruptions"
+    # get stored GenEvent manager
+    manager = get_in(socket.assigns, [:manager])
     # get the disruptions stream
     stream = GenEvent.call(manager, DisruptionsFeedHandler, :disruptions)
     |> Stream.chunk(@new_items_no)
