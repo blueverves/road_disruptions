@@ -17,13 +17,16 @@ defmodule RoadDisruptions.DisruptionsChannel do
   # by sending replies to requests from the client
   def handle_in("start_stream", payload, socket) do
     Logger.debug "DisruptionsChannel: start stream"
+    filter_settings = keys_to_atom(payload)
 
     # start a new event manager
     {:ok, manager} = GenEvent.start_link([])
     # attach an event handler to the event manager
     GenEvent.add_handler(manager, DisruptionsFeedHandler, [])
     # trigger the news feed
-    GenEvent.sync_notify(manager, :start_stream)
+    GenEvent.sync_notify(manager, %{start_stream: []})
+    # filter stream by settings
+    GenEvent.sync_notify(manager, filter_settings)
     # get the disruptions stream
     stream = GenEvent.call(manager, DisruptionsFeedHandler, :disruptions)
     |> Stream.chunk(@new_items_no)
@@ -55,6 +58,11 @@ defmodule RoadDisruptions.DisruptionsChannel do
   # Add authorization logic here as required.
   defp authorized?(_payload) do
     true
+  end
+
+  defp keys_to_atom(map) do
+    map
+    |> Enum.reduce(%{}, fn ({key, val}, acc) -> Map.put(acc, String.to_atom(key), val) end)
   end
 
   defp markers(disruptions) do

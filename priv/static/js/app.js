@@ -1541,7 +1541,7 @@ var disruptionsContainer = document.querySelector("#disruptions");
 
 channel.join().receive("ok", function (resp) {
     console.log("Joined successfully", resp);
-    channel.push("start_stream", {});
+    channel.push("start_stream", { "filter_by_severity": "Minimal", "filter_by_status": "Active" });
 }).receive("error", function (resp) {
     console.log("Unable to join", resp);
 });
