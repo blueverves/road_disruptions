@@ -1,6 +1,7 @@
 defmodule RoadDisruptions.DisruptionsChannel do
   use RoadDisruptions.Web, :channel
   require Logger
+  alias RoadDisruptions.DisruptionsStreamHandler
 
   @delay 5000
   @new_items_no 10
@@ -20,7 +21,7 @@ defmodule RoadDisruptions.DisruptionsChannel do
     # start a new event manager
     {:ok, manager} = GenEvent.start_link([])
     # attach an event handler to the event manager
-    GenEvent.add_handler(manager, DisruptionsFeedHandler, [])
+    GenEvent.add_handler(manager, DisruptionsStreamHandler, [])
     # store manager in socket
     socket = assign(socket, :manager, manager)
     # trigger the news feed
@@ -58,7 +59,7 @@ defmodule RoadDisruptions.DisruptionsChannel do
     # get stored GenEvent manager
     manager = get_in(socket.assigns, [:manager])
     # get the disruptions stream
-    stream = GenEvent.call(manager, DisruptionsFeedHandler, :disruptions)
+    stream = GenEvent.call(manager, DisruptionsStreamHandler, :disruptions)
     |> Stream.chunk(@new_items_no)
 
     for disruptions <- stream do

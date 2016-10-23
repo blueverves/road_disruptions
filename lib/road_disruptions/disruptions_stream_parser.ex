@@ -1,4 +1,4 @@
-defmodule StreamingXmlParser do
+defmodule RoadDisruptions.DisruptionsStreamParser do
   import SweetXml
   require Logger
 
@@ -21,14 +21,14 @@ defmodule StreamingXmlParser do
   end
 
   defp open_feed do
-    Logger.debug "StreamingXmlParser: open_feed"
+    Logger.debug "DisruptionsStreamParser: open_feed"
     HTTPoison.start
     {:ok, %HTTPoison.Response{body: data}} = HTTPoison.get(@uri, [], [timeout: @timeout, recv_timeout: @recv_timeout])
     data
   end
 
   defp parse_xml(stream) do
-    Logger.debug "StreamingXmlParser: parse_xml"
+    Logger.debug "DisruptionsStreamParser: parse_xml"
 
     stream |> xpath(
       ~x"//Disruption"l,
